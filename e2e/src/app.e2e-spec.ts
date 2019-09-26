@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('visual-regexp-composer app is running!');
+    expect(page.getTitleText()).toEqual('bsh-angular-tools app is running!');
   });
 
   afterEach(async () => {

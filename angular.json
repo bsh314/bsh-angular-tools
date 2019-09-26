@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "visual-regexp-composer": {
+    "bsh-angular-tools": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/visual-regexp-composer",
+            "outputPath": "dist/bsh-angular-tools",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,6 +28,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-dark/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -67,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "visual-regexp-composer:build"
+            "browserTarget": "bsh-angular-tools:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "visual-regexp-composer:build:production"
+              "browserTarget": "bsh-angular-tools:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "visual-regexp-composer:build"
+            "browserTarget": "bsh-angular-tools:build"
           }
         },
         "test": {
@@ -115,15 +118,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "visual-regexp-composer:serve"
+            "devServerTarget": "bsh-angular-tools:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "visual-regexp-composer:serve:production"
+              "devServerTarget": "bsh-angular-tools:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "visual-regexp-composer"
+  "defaultProject": "bsh-angular-tools"
 }

@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'visual-regexp-composer'`, () => {
+  it(`should have as title 'bsh-angular-tools'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('visual-regexp-composer');
+    expect(app.title).toEqual('bsh-angular-tools');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('visual-regexp-composer app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('bsh-angular-tools app is running!');
   });
 });
