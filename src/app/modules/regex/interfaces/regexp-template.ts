@@ -9,6 +9,7 @@ export interface RegexpTemplate {
     params?: RegexpParam[];
     options?: RegexpOption[];
     variants?: RegexpVariant[];
+    examples?: string[];
 }
 
 export default RegexpTemplate;

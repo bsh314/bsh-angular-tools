@@ -1,7 +1,7 @@
 export interface RegexpParam {
     name: string;
     title: string;
-    type: 'string', 'number';
+    type: 'string' | 'number';
     value?: string | number
 }
 
