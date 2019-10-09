@@ -11,27 +11,15 @@ import RegexpVariant from '../../interfaces/regexp-variant';
 })
 export class RegexToolComponent implements OnInit {
 
-  private list: DropdownItem[] = RegExpList.map(item => ({label: item.name, value: item}));
+  list: DropdownItem[] = RegExpList.map(item => ({label: item.name, value: item}));
 
-  public currentRegexp: Regexp = this.getDefaultRegexp();
-  public currentResults: {input: string, output: any}[] = [];
+  currentRegexp: Regexp = this.getDefaultRegexp();
+  currentResults: {input: string, output: any}[] = [];
 
   constructor() { }
 
   ngOnInit() {
     this.updateExamples();
-    /*
-    const test = RegExpList[0];
-
-    test.setOption(test.options[0]);
-    test.setOption(test.options[1]);
-    test.setOption(test.options[2]);
-    test.setOption(test.options[3]);
-
-    for (let i = 0; i < test.examples.length; i++) {
-      test.eval(test.examples[i]);
-    }
-    */
   }
 
   updateExamples(): void {

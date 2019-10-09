@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs/internal/Subscription';
 })
 export class RegexOptionsComponent implements OnInit {
 
-  private _regexp: Regexp;
-  private _subscriptions: Subscription[] = [];
+  _regexp: Regexp;
+  _subscriptions: Subscription[] = [];
 
   @Output() onChange = new EventEmitter();
 
@@ -26,7 +26,4 @@ export class RegexOptionsComponent implements OnInit {
       this._regexp.update();
     })
   }
-
-
-
 }
