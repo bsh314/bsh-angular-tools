@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+    <ng-container *ngIf="_regexp && _regexp.variants && _regexp.variants.length > 0">
+      <p-dropdown [options]="_regexp.variants" [(ngModel)]="_regexp.currentVariant"
+        (onChange)="_regexp.setVariant($event.value); this.onChange.emit();" optionLabel="title">
+      </p-dropdown>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="_regexp && _regexp.editable">
+
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+      <ng-container [ngTemplateOutlet]="paramTemplate" [ngTemplateOutletContext]="{params: _regexp.params}">
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="_regexp.options">
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <p-multiSelect [options]="_regexp.options" [(ngModel)]="_regexp.currentOptions"
+          (onChange)="this.onChange.emit();" optionLabel="title">
+        </p-multiSelect>
+
+      </div>
+
+      <ng-container *ngFor="let opt of _regexp.currentOptions">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <p>{{opt.title}}</p>
+          <ng-container [ngTemplateOutlet]="paramTemplate" [ngTemplateOutletContext]="{params: opt.params}">
+          </ng-container>
+        </div>
+      </ng-container>
+
+    </ng-container>
+
+  </ng-container>
+
+</div>
+
+
+
+<ng-template #paramTemplate let-params="params">
+  <ng-container *ngIf="params && params.length > 0">
+    <ng-container *ngFor="let param of params">
+      <span class="ui-float-label">
+        <input id="{{param.name}}" pInputText type="{{param.type}}" [(ngModel)]="param.value"
+          (ngModelChange)="this.onChange.emit()">
+        <label for="{{param.name}}">{{param.title}}</label>
+      </span>
+    </ng-container>
+  </ng-container>
+</ng-template>

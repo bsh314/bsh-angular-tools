@@ -29,10 +29,17 @@
             ],
             "styles": [
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-dark/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.scss"
+              "node_modules/primeng/resources/themes/nova-dark/theme.css",
+              "node_modules/flexboxgrid/dist/flexboxgrid.min.css",
+              "src/styles/main.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "assets",
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

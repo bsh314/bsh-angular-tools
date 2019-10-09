@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Regexp } from '../../interfaces/regexp';
 import { RegExpList } from '../../templates/list';
+import { DropdownItem } from '../../interfaces/dropdown-item';
+import RegexpVariant from '../../interfaces/regexp-variant';
 
 @Component({
   selector: 'app-regex-tool',
@@ -9,13 +11,16 @@ import { RegExpList } from '../../templates/list';
 })
 export class RegexToolComponent implements OnInit {
 
-  private list: Regexp[] = RegExpList;
+  private list: DropdownItem[] = RegExpList.map(item => ({label: item.name, value: item}));
 
-  public currentRegexp: Regexp;
+  public currentRegexp: Regexp = this.getDefaultRegexp();
+  public currentResults: {input: string, output: any}[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.updateExamples();
+    /*
     const test = RegExpList[0];
 
     test.setOption(test.options[0]);
@@ -26,6 +31,22 @@ export class RegexToolComponent implements OnInit {
     for (let i = 0; i < test.examples.length; i++) {
       test.eval(test.examples[i]);
     }
+    */
   }
 
+  updateExamples(): void {
+    const output = [];
+    for (let i = 0; i < this.currentRegexp.examples.length; i++) {
+      const example = this.currentRegexp.examples[i];
+      output.push({
+        input: example,
+        output: this.currentRegexp.eval(example),
+      })
+    }
+    this.currentResults = output;
+  }
+
+  private getDefaultRegexp(): Regexp {
+    return this.list && this.list.length > 0 ? this.list[0].value : undefined;
+  }
 }

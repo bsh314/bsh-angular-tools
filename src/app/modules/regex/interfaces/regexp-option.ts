@@ -5,6 +5,7 @@ export interface RegexpOption {
     title: string;
     exp: string;
     params?: RegexpParam[];
+    enabled?: boolean;
 }
 
 export default RegexpOption;

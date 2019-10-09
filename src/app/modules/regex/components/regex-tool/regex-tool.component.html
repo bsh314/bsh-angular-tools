@@ -1,2 +1,32 @@
-<p>regex-tool works!</p>
-<p-dropdown [options]="list" [(ngModel)]="currentRegexp" optionLabel="title" filter="true"></p-dropdown>
+<div class="row center-xs">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+        <p-dropdown [options]="list" [(ngModel)]="currentRegexp" (onChange)="updateExamples();" filter="true">
+            <ng-template let-item pTemplate="selectedItem">
+                <i *ngIf="item.value.icon" class="{{item.value.icon}}" style="width:16px;vertical-align:middle"></i>
+                <span style="vertical-align:middle; margin-left: .5em">{{item.value.title}}</span>
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+                <div class="ui-helper-clearfix">
+                    <i *ngIf="item.value.icon" class="{{item.value.icon}}" style="width:16px;vertical-align:middle"></i>
+                    <span style="vertical-align:middle; margin-left: .5em">{{item.value.title}}</span>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs">
+        <app-regex-options [regexp]="currentRegexp" (onChange)="updateExamples();"></app-regex-options>
+        <p>{{currentRegexp.output}}</p>
+        <!-- <p *ngIf="currentRegexp.editable">{{currentRegexp.output}}</p> -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs">
+        <ul>
+            <li *ngFor="let example of currentResults">
+                {{example.input}} --> {{example.output.toString()}}
+            </li>
+        </ul>
+    </div>
+</div>
